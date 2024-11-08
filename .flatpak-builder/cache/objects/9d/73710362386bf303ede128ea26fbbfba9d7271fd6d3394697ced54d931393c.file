@@ -1,5 +1,0 @@
-[Runtime]
-name=com.github.Demo.Debug
-
-[ExtensionOf]
-ref=app/com.github.Demo/x86_64/master

@@ -1,6 +1,0 @@
-#!/bin/sh
-echo "Changing directory to /var/data/WinePrefix/drive_c/Games/Demo"
-cd /var/data/WinePrefix/drive_c/Games/Demo
-
-echo "Running Demo with Gamescope + Wine"
-gamescope -f --filter nis --backend sdl --expose-wayland -- wine /var/data/WinePrefix/drive_c/Games/Demo/demo.exe
