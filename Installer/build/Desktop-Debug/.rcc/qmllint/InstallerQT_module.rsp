@@ -1,0 +1,10 @@
+-I
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug
+-I
+/usr/qml
+--resource
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/.qt/rcc/qmake_Installer.qrc
+--resource
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/.qt/rcc/InstallerQT_raw_qml_0.qrc
+--module
+Installer

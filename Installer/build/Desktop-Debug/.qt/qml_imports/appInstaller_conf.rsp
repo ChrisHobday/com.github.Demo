@@ -1,0 +1,14 @@
+-rootPath
+/home/chris/Projects/Flatpak/com.github.Demo/Installer
+-cmake-output
+-output-file
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/.qt/qml_imports/appInstaller_conf.cmake
+-importPath
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/Installer
+-importPath
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug
+-importPath
+/usr/qml
+-qrcFiles
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/.qt/rcc/qmake_Installer.qrc
+/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/.qt/rcc/appInstaller_raw_qml_0.qrc

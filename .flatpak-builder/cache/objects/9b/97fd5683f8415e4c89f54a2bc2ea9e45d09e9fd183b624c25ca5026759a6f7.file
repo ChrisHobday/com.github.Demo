@@ -1,0 +1,77 @@
+[Application]
+name=com.github.Demo
+runtime=org.kde.Platform/x86_64/6.7
+sdk=org.kde.Sdk/x86_64/6.7
+base=app/org.winehq.Wine/x86_64/stable-24.08
+command=Wrapper
+
+[Extension org.freedesktop.Platform.Compat.i386]
+directory=lib/i386-linux-gnu
+version=24.08
+
+[Extension org.freedesktop.Platform.GL32]
+directory=lib/i386-linux-gnu/GL
+no-autodownload=true
+subdirectories=true
+add-ld-path=lib
+download-if=active-gl-driver
+enable-if=active-gl-driver
+autoprune-unless=active-gl-driver
+merge-dirs=vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;lib/gbm;vulkan/explicit_layer.d;vulkan/implicit_layer.d
+version=1.4
+versions=24.08;1.4
+
+[Extension org.freedesktop.Platform.ffmpeg-full]
+directory=lib/ffmpeg
+add-ld-path=.
+version=24.08
+
+[Extension org.freedesktop.Platform.ffmpeg_full.i386]
+directory=lib32/ffmpeg
+add-ld-path=.
+version=24.08
+
+[Extension org.winehq.Wine.gecko]
+directory=share/wine/gecko
+version=stable-24.08
+
+[Extension org.winehq.Wine.mono]
+directory=share/wine/mono
+version=stable-24.08
+
+[Extension org.winehq.Wine.DLLs]
+directory=dlls
+subdirectories=true
+merge-dirs=lib;lib32;
+version=stable-24.08
+versions=stable;stable-24.08
+
+[Context]
+shared=network;ipc;
+sockets=wayland;pulseaudio;
+devices=all;
+features=multiarch;
+filesystems=xdg-run/app/com.discordapp.Discord:create;xdg-config/kdeglobals:ro;host:ro;xdg-run/gamescope-0:ro;
+
+[Session Bus Policy]
+com.canonical.AppMenu.Registrar=talk
+org.kde.kconfig.notify=talk
+org.kde.KGlobalSettings=talk
+
+[Environment]
+WINEDEBUG=-all
+WINEPREFIX=/var/data/WinePrefix
+PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin
+
+[Extension com.github.Demo.Locale]
+directory=share/runtime/locale
+autodelete=true
+locale-subset=true
+
+[Extension com.github.Demo.Debug]
+directory=lib/debug
+autodelete=true
+no-autodownload=true
+
+[Build]
+built-extensions=com.github.Demo.Locale;com.github.Demo.Debug;

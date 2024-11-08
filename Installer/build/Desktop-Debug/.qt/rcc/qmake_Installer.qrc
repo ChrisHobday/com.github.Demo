@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Installer">
+    <file alias="qmldir">/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug/Installer/qmldir</file>
+  </qresource>
+</RCC>
+

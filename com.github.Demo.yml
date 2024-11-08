@@ -1,0 +1,116 @@
+app-id: com.github.Demo
+sdk: org.kde.Sdk
+runtime: org.kde.Platform
+runtime-version: &runtime-version '6.7'
+base: org.winehq.Wine
+base-version: stable-24.08
+command: Wrapper
+# rename-desktop-file: Demo.desktop
+# rename-icon: Demo
+finish-args:
+  - --device=all # Needed to read inserted CD
+  - --filesystem=host:ro # Needed to read mounted ISO
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create # Required for setting up Discord rich presence
+  - --filesystem=xdg-run/gamescope-0:ro # Required for Gamescope on Steam Deck
+  - --env=PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin # Add Vulkan Gamescope extension to path to get access to Gamescope binary
+  - --env=WINEPREFIX=/var/data/WinePrefix # The Wine prefix where Windows files and .exe files are installed
+  # - --env=WINEARCH=win32 # Set 32 bit architecture for Wine prefix
+  - --env=WINEDEBUG=-all # Turn off Wine debug error messages
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --share=network
+  - --share=ipc
+  - --allow=multiarch # Adds 32 bit binaries
+
+inherit-extensions:
+  - org.freedesktop.Platform.Compat.i386
+  - org.freedesktop.Platform.GL32
+  - org.freedesktop.Platform.ffmpeg-full
+  - org.freedesktop.Platform.ffmpeg_full.i386
+  - org.winehq.Wine.gecko
+  - org.winehq.Wine.mono
+  - org.winehq.Wine.DLLs
+
+modules:
+  # Files Wine uses
+  - name: WineFiles
+    buildsystem: simple
+    sources:
+      # Windows registry file that sets Wine to grab cursor in fullscreen, emulate a virtual desktop and set desktop resolution
+      - type: file
+        path: Registry/WineGraphics.reg
+
+      # Windows registry file that sets Demo paths
+      - type: file
+        path: Registry/Demo.reg
+    build-commands:
+      - |
+        echo "Making /app/share/Registry directory"
+        mkdir /app/share/Registry
+
+        echo "Moving Demo.reg to /app/share/Registry"
+        mv Demo.reg /app/share/Registry
+
+        echo "Moving WineGraphics.reg to /app/share/Registry"
+        mv WineGraphics.reg /app/share/Registry
+
+  # A QT GUI installer for installing CD based Windows programs on Linux with Wine
+  - name: Installer
+    buildsystem: cmake
+    sources:
+      - type: dir
+        path: Installer
+
+  # Scripts for wrapping and deciding what to run, getting CD mount location, setting up Wine, installing, and launching
+  - name: Scripts
+    buildsystem: simple
+    sources:
+      # Script that Wraps these other scripts and the QT Installer, is the first app to run, and decides what to run when
+      - type: file
+        path: Scripts/Wrapper
+
+      # Script that tries to get the CD mount location
+      - type: file
+        path: Scripts/GetCDMountLocation
+
+      # Script that sets up Wine
+      - type: file
+        path: Scripts/WineSetup
+
+      # Script that installs the CD into Wine
+      - type: file
+        path: Scripts/Install
+
+      # Script that launches
+      - type: file
+        path: Scripts/Launch
+
+    build-commands:
+      - |
+        echo "Installing Wrapper script to /app/bin"
+        install -m 744 Wrapper /app/bin/
+
+        echo "Installing GetCDMountLocation script to /app/bin"
+        install -m 744 GetCDMountLocation /app/bin/
+
+        echo "Installing WineSetup script to /app/bin"
+        install -m 744 WineSetup /app/bin/
+
+        echo "Installing Install script to /app/bin"
+        install -m 744 Install /app/bin/
+
+        echo "Installing Launch script to /app/bin"
+        install -m 744 Launch /app/bin/
+
+  # Demo metainfo
+  - name: DemoMetaInfo
+    buildsystem: simple
+    sources:
+      # Metainfo file for Flatpak repos
+      - type: file
+        path: com.github.Demo.metainfo.xml
+
+    build-commands:
+      - |
+        echo "Installing com.github.Demo.metainfo.xml to /app/share/metainfo/"
+        install -Dm644 com.github.Demo.metainfo.xml /app/share/metainfo/

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.Demo</id>
+  
+  <name>Demo</name>
+  <summary>A demo for installing/launching Windows CD based software</summary>
+  
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  
+  <description>
+    <p>
+      A demo for installing/launching Windows CD based software
+    </p>
+  </description>
+
+  <releases>
+    <release version="1.0" date="2024-11-04"/>
+  </releases>
+</component>

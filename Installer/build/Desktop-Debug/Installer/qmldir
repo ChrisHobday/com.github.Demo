@@ -1,0 +1,5 @@
+module Installer
+typeinfo InstallerQT.qmltypes
+prefer :/qt/qml/Installer/
+Main 1.0 Main.qml
+

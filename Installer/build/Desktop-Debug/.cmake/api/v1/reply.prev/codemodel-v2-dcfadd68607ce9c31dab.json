@@ -1,0 +1,169 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-652b5ca9442da59e2caf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Installer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT-Debug-6c7e6156d2dee795a0cc.json",
+					"name" : "InstallerQT",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_autogen-Debug-6b43bae9f097c9898c0f.json",
+					"name" : "InstallerQT_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_autogen_timestamp_deps-Debug-25631a82944b69de5c5f.json",
+					"name" : "InstallerQT_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_qmlimportscan-Debug-6474d94a2b420d3e7a09.json",
+					"name" : "InstallerQT_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_qmllint-Debug-d9eaabadcee92f6b54bc.json",
+					"name" : "InstallerQT_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_qmllint_json-Debug-2517123b71a0c7ebcb76.json",
+					"name" : "InstallerQT_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_qmllint_module-Debug-2e26fc9854a812676cea.json",
+					"name" : "InstallerQT_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_qmltyperegistration-Debug-9c502f1ff4921e06228a.json",
+					"name" : "InstallerQT_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InstallerQT_tooling::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InstallerQT_tooling-Debug-d8949689233c3d4e343e.json",
+					"name" : "InstallerQT_tooling",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-Debug-81c352a556292bb6fd39.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-Debug-61b08bd3742b16205b01.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_module::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_module-Debug-3758b9df713eb051ed72.json",
+					"name" : "all_qmllint_module",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-Debug-b23a8ec2ccc53168369b.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/chris/Projects/Flatpak/com.github.Demo/Installer/build/Desktop-Debug",
+		"source" : "/home/chris/Projects/Flatpak/com.github.Demo/Installer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
