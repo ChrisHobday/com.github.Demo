@@ -280,6 +280,27 @@
  mdp:/usr/include/QtCore/qxpfunctional.h
  mdp:/usr/include/QtCore/qxptype_traits.h
  mdp:/usr/include/QtCore/qyieldcpu.h
+ mdp:/usr/include/QtGui/QCursor
+ mdp:/usr/include/QtGui/QGuiApplication
+ mdp:/usr/include/QtGui/qbitmap.h
+ mdp:/usr/include/QtGui/qcolor.h
+ mdp:/usr/include/QtGui/qcursor.h
+ mdp:/usr/include/QtGui/qguiapplication.h
+ mdp:/usr/include/QtGui/qguiapplication_platform.h
+ mdp:/usr/include/QtGui/qimage.h
+ mdp:/usr/include/QtGui/qinputmethod.h
+ mdp:/usr/include/QtGui/qpaintdevice.h
+ mdp:/usr/include/QtGui/qpixelformat.h
+ mdp:/usr/include/QtGui/qpixmap.h
+ mdp:/usr/include/QtGui/qpolygon.h
+ mdp:/usr/include/QtGui/qregion.h
+ mdp:/usr/include/QtGui/qrgb.h
+ mdp:/usr/include/QtGui/qrgba64.h
+ mdp:/usr/include/QtGui/qtgui-config.h
+ mdp:/usr/include/QtGui/qtguiexports.h
+ mdp:/usr/include/QtGui/qtguiglobal.h
+ mdp:/usr/include/QtGui/qtransform.h
+ mdp:/usr/include/QtGui/qwindowdefs.h
  mdp:/usr/include/QtNetwork/QNetworkAccessManager
  mdp:/usr/include/QtNetwork/QNetworkRequest
  mdp:/usr/include/QtNetwork/QSslConfiguration

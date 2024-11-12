@@ -21,6 +21,8 @@ Module {
             name: "success"
             Parameter { name: "successOutput"; type: "QString" }
         }
+        Signal { name: "start" }
+        Signal { name: "finish" }
         Method {
             name: "run"
             Parameter { name: "program"; type: "QString" }

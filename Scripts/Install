@@ -1,5 +1,4 @@
 #!/bin/bash
-# TODO: Figure out why QT's QProcess->readAllStandardOutput() is placing a newline after the ${1} argument
 echo "Creating symlink from ${1} to /var/data/WinePrefix/dosdevices/d:"
 ln -s $1 /var/data/WinePrefix/dosdevices/d:
 
@@ -9,7 +8,6 @@ mkdir /var/data/WinePrefix/drive_c/Games
 echo "Copying /var/data/WinePrefix/dosdevices/d: to /var/data/WinePrefix/drive_c/Games/Demo"
 cp -r --no-preserve=mode /var/data/WinePrefix/dosdevices/d:/ /var/data/WinePrefix/drive_c/Games/Demo
 
-# TODO: Figure out why QT's QProcess->readAllStandardOutput() is placing a newline after the ${1} argument
 echo "Removing symlink from ${1} to /var/data/WinePrefix/dosdevices/d:"
 rm /var/data/WinePrefix/dosdevices/d:
 

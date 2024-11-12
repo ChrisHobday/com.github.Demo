@@ -50,6 +50,16 @@
                         ],
                         "name": "success",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "start",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "finish",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [

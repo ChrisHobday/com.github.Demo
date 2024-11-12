@@ -28,6 +28,11 @@ Kirigami.ApplicationWindow {
         onSuccess: (successOutput) => {
                          installOutput.text = successOutput
                      }
+
+        onStart: busyIndicator.running = true
+        onFinish: busyIndicator.running = false
+        // onStart: cdMountLocation.text = "onStarted"
+        // onFinish: cdMountLocation.text = "onFinished"
     }
 
     // A process that runs a program that installs a Windows CD into the Wine prefix
@@ -36,7 +41,13 @@ Kirigami.ApplicationWindow {
 
         onSuccess: (successOutput) => {
                          installOutput.text = installOutput.text + successOutput
+                         // installOutput.text = "successOutput " + successOutput
                      }
+
+        onStart: busyIndicator.running = true
+        onFinish: busyIndicator.running = false
+        // onStart: cdMountLocation.text = "onStarted"
+        // onFinish: cdMountLocation.text = "onFinished"
     }
 
     // TODO: Add popup that displays error output from programs ran on processes
@@ -121,19 +132,11 @@ Kirigami.ApplicationWindow {
                 text:"Install"
                 icon.name: "install"
                 onTriggered: {
-                    busyIndicator.running = true
-
-
-
-
-
-
-
                     wineSetup.run("WineSetup", [])
                     installer.run("Install", [cdMountLocation.text])
                     busyIndicator.running = false
                     installOutput.visible = true
-                    // pageStack.push(installCompletePage)
+                    pageStack.push(installCompletePage)
                 }
             }
         ]

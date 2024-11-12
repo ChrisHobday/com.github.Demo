@@ -285,6 +285,27 @@ InstallerQT_autogen/timestamp: \
 	/usr/include/QtCore/qxpfunctional.h \
 	/usr/include/QtCore/qxptype_traits.h \
 	/usr/include/QtCore/qyieldcpu.h \
+	/usr/include/QtGui/QCursor \
+	/usr/include/QtGui/QGuiApplication \
+	/usr/include/QtGui/qbitmap.h \
+	/usr/include/QtGui/qcolor.h \
+	/usr/include/QtGui/qcursor.h \
+	/usr/include/QtGui/qguiapplication.h \
+	/usr/include/QtGui/qguiapplication_platform.h \
+	/usr/include/QtGui/qimage.h \
+	/usr/include/QtGui/qinputmethod.h \
+	/usr/include/QtGui/qpaintdevice.h \
+	/usr/include/QtGui/qpixelformat.h \
+	/usr/include/QtGui/qpixmap.h \
+	/usr/include/QtGui/qpolygon.h \
+	/usr/include/QtGui/qregion.h \
+	/usr/include/QtGui/qrgb.h \
+	/usr/include/QtGui/qrgba64.h \
+	/usr/include/QtGui/qtgui-config.h \
+	/usr/include/QtGui/qtguiexports.h \
+	/usr/include/QtGui/qtguiglobal.h \
+	/usr/include/QtGui/qtransform.h \
+	/usr/include/QtGui/qwindowdefs.h \
 	/usr/include/QtNetwork/QNetworkAccessManager \
 	/usr/include/QtNetwork/QNetworkRequest \
 	/usr/include/QtNetwork/QSslConfiguration \

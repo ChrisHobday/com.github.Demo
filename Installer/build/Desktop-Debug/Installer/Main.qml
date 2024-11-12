@@ -12,18 +12,12 @@ Kirigami.ApplicationWindow {
     title: qsTr("Demo Installer")
     pageStack.initialPage: welcomePage //Set the initial page stack page to the welcome page
 
-    // property url cdMountLocation: ""
-    property string wineSetupOutput: ""
-    property string installerOutput: ""
-
     // A proccess that runs a program that tries to get the location of a mounted CD if there is one
     Process {
         id: getCDMountLocation
 
         onSuccess: (successOutput) => {
-                       // cdMountLocation = successOutput
-                       // cdLocation.text = decodeURIComponent(successOutput)
-                       cdMountLocation.text = "billybob"
+                       cdMountLocation.text = decodeURIComponent(successOutput)
                    }
     }
 
@@ -32,8 +26,13 @@ Kirigami.ApplicationWindow {
         id: wineSetup
 
         onSuccess: (successOutput) => {
-                         wineSetupOutput = successOutput
+                         installOutput.text = successOutput
                      }
+
+        onStart: busyIndicator.running = true
+        onFinish: busyIndicator.running = false
+        // onStart: cdMountLocation.text = "onStarted"
+        // onFinish: cdMountLocation.text = "onFinished"
     }
 
     // A process that runs a program that installs a Windows CD into the Wine prefix
@@ -41,10 +40,17 @@ Kirigami.ApplicationWindow {
         id: installer
 
         onSuccess: (successOutput) => {
-                         installerOutput = successOutput
+                         installOutput.text = installOutput.text + successOutput
+                         // installOutput.text = "successOutput " + successOutput
                      }
+
+        onStart: busyIndicator.running = true
+        onFinish: busyIndicator.running = false
+        // onStart: cdMountLocation.text = "onStarted"
+        // onFinish: cdMountLocation.text = "onFinished"
     }
 
+    // TODO: Add popup that displays error output from programs ran on processes
     // Controls.Popup {
     //     id: popup
     //     x: 100
@@ -91,13 +97,6 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        // Image {
-        //     id: cover
-        //     source: "./Images/DemoCover.png"
-        //     anchors.top: header.bottom
-        //     anchors.bottom: footer.top
-        // }
-
         ColumnLayout {
             id: footer
             spacing: Kirigami.Units.smallSpacing
@@ -133,19 +132,11 @@ Kirigami.ApplicationWindow {
                 text:"Install"
                 icon.name: "install"
                 onTriggered: {
-                    busyIndicator.running = true
-
-
-
-
-
-
-
                     wineSetup.run("WineSetup", [])
-                    // installer.run("Install", [cdMountLocation.text])
+                    installer.run("Install", [cdMountLocation.text])
                     busyIndicator.running = false
                     installOutput.visible = true
-                    // pageStack.push(installCompletePage)
+                    pageStack.push(installCompletePage)
                 }
             }
         ]
@@ -178,7 +169,7 @@ Kirigami.ApplicationWindow {
                 FolderDialog {
                     id: folderDialog
                     currentFolder: "documentsFolder"
-                    onAccepted: cdLocation.text = decodeURIComponent(folderDialog.selectedFolder.toString().replace(/^(file:\/{2})/,"")); // Set CD location to the selected folder with the QT url prefix file:// and special characters stripped
+                    onAccepted: cdMountLocation.text = decodeURIComponent(folderDialog.selectedFolder.toString().replace(/^(file:\/{2})/,"")); // Set CD location to the selected folder with the QT url prefix file:// and special characters stripped
                 }
             }
 
@@ -188,7 +179,6 @@ Kirigami.ApplicationWindow {
                 wrapMode: Text.WordWrap
                 visible: false
                 enabled: false
-                text: wineSetupOutput + installerOutput
             }
 
             Controls.BusyIndicator {
