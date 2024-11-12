@@ -8,9 +8,12 @@ InstallerQT_autogen/timestamp: \
 	/home/chris/Projects/Flatpak/com.github.Demo/Installer/main.cpp \
 	/home/chris/Projects/Flatpak/com.github.Demo/Installer/process.cpp \
 	/home/chris/Projects/Flatpak/com.github.Demo/Installer/process.h \
+	/home/chris/Projects/Flatpak/com.github.Demo/Installer/worker.cpp \
+	/home/chris/Projects/Flatpak/com.github.Demo/Installer/worker.h \
 	/usr/include/QtCore/QByteArray \
 	/usr/include/QtCore/QCryptographicHash \
 	/usr/include/QtCore/QDeadlineTimer \
+	/usr/include/QtCore/QDebug \
 	/usr/include/QtCore/QFlags \
 	/usr/include/QtCore/QHash \
 	/usr/include/QtCore/QIODevice \
@@ -22,6 +25,7 @@ InstallerQT_autogen/timestamp: \
 	/usr/include/QtCore/QSharedDataPointer \
 	/usr/include/QtCore/QString \
 	/usr/include/QtCore/QStringList \
+	/usr/include/QtCore/QThread \
 	/usr/include/QtCore/QUrl \
 	/usr/include/QtCore/QVariant \
 	/usr/include/QtCore/QtCore \

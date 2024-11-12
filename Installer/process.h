@@ -14,7 +14,7 @@ class Process : public QObject
 public:
     explicit Process(QObject *parent = nullptr);
     Q_INVOKABLE void run(QString program, QStringList arguments); // Runs the given program with the given arguments
-    // QThread thread;
+    QThread thread;
 
 signals:
     void error(QString errorOutput); // Signifies an error while running process, which returns the error output

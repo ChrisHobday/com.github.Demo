@@ -905,6 +905,12 @@
 			"MU",
 			"EWIEGA46WW/moc_process.cpp",
 			null
+		],
+		[
+			"/home/chris/Projects/Flatpak/com.github.Demo/Installer/worker.h",
+			"MU",
+			"EWIEGA46WW/moc_worker.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -1002,6 +1008,11 @@
 		],
 		[
 			"/home/chris/Projects/Flatpak/com.github.Demo/Installer/process.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/chris/Projects/Flatpak/com.github.Demo/Installer/worker.cpp",
 			"MU",
 			null
 		]

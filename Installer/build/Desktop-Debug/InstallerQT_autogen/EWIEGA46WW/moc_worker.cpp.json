@@ -1,0 +1,24 @@
+{
+    "classes": [
+        {
+            "className": "Worker",
+            "object": true,
+            "qualifiedClassName": "Worker",
+            "slots": [
+                {
+                    "access": "public",
+                    "name": "run",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "worker.h",
+    "outputRevision": 68
+}
