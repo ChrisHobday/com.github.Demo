@@ -78,8 +78,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSProcessENDCLASS[] = {
        8,    0,   52,    4, 0x06,    5 /* Public */,
        9,    0,   53,    4, 0x06,    6 /* Public */,
 
- // methods: name, argc, parameters, tag, flags, initial metatype offsets
-      10,    2,   54,    4, 0x02,    7 /* Public */,
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+      10,    2,   54,    4, 0x0a,    7 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    5,
@@ -87,7 +87,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSProcessENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
 
- // methods: parameters
+ // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QStringList,   11,   12,
 
        0        // eod

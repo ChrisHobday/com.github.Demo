@@ -73,7 +73,6 @@ Kirigami.ApplicationWindow {
                 icon.name: "go-next"
                 onTriggered: {
                     getCDMountLocation.run("GetCDMountLocation", [])
-                    // getCDMountLocation.run("GetCDMountLocation", [])
                     pageStack.push(cdLocationPage)
                 }
             }

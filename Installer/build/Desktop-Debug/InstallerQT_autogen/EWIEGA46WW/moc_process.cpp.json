@@ -8,23 +8,6 @@
                 }
             ],
             "className": "Process",
-            "methods": [
-                {
-                    "access": "public",
-                    "arguments": [
-                        {
-                            "name": "program",
-                            "type": "QString"
-                        },
-                        {
-                            "name": "arguments",
-                            "type": "QStringList"
-                        }
-                    ],
-                    "name": "run",
-                    "returnType": "void"
-                }
-            ],
             "object": true,
             "qualifiedClassName": "Process",
             "signals": [
@@ -58,6 +41,23 @@
                 {
                     "access": "public",
                     "name": "finish",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "program",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "arguments",
+                            "type": "QStringList"
+                        }
+                    ],
+                    "name": "run",
                     "returnType": "void"
                 }
             ],

@@ -9,23 +9,6 @@
                     }
                 ],
                 "className": "Process",
-                "methods": [
-                    {
-                        "access": "public",
-                        "arguments": [
-                            {
-                                "name": "program",
-                                "type": "QString"
-                            },
-                            {
-                                "name": "arguments",
-                                "type": "QStringList"
-                            }
-                        ],
-                        "name": "run",
-                        "returnType": "void"
-                    }
-                ],
                 "object": true,
                 "qualifiedClassName": "Process",
                 "signals": [
@@ -62,26 +45,19 @@
                         "returnType": "void"
                     }
                 ],
-                "superClasses": [
-                    {
-                        "access": "public",
-                        "name": "QObject"
-                    }
-                ]
-            }
-        ],
-        "inputFile": "process.h",
-        "outputRevision": 68
-    },
-    {
-        "classes": [
-            {
-                "className": "Worker",
-                "object": true,
-                "qualifiedClassName": "Worker",
                 "slots": [
                     {
                         "access": "public",
+                        "arguments": [
+                            {
+                                "name": "program",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "arguments",
+                                "type": "QStringList"
+                            }
+                        ],
                         "name": "run",
                         "returnType": "void"
                     }
@@ -94,7 +70,7 @@
                 ]
             }
         ],
-        "inputFile": "worker.h",
+        "inputFile": "process.h",
         "outputRevision": 68
     }
 ]
