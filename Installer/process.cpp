@@ -6,8 +6,7 @@ Process::Process(QObject *parent)
     : QObject{parent}
 {}
 
-void Process::run(QString program, QStringList arguments)
-{
+void Process::run(QString program, QStringList arguments) {
     QThread *thread = QThread::create([this](QString program, QStringList arguments) -> void {
         QProcess *process = new QProcess(); // Create a process that will run the given program
 
@@ -15,9 +14,6 @@ void Process::run(QString program, QStringList arguments)
         QGuiApplication::setOverrideCursor(Qt::WaitCursor); // Set the cursor to the wait cursor
 
         // process->setWorkingDirectory(""); // Set working directory where given program will be executed
-        // process->setProgram(program);
-        // process->setArguments(arguments);
-        // process->startDetached();
         process->start(program, arguments); // Start the given program with the given arguments
         process->waitForFinished(); // Waits for the program to finish executing before returing control to GUI (this freezes the GUI)
 
@@ -31,9 +27,4 @@ void Process::run(QString program, QStringList arguments)
         emit finish(); // Emit that the process has finished
     }, program, arguments);
     thread->start();
-}
-
-void Process::test(QString string)
-{
-    qDebug() << Q_FUNC_INFO << string;
 }

@@ -17,50 +17,45 @@ Kirigami.ApplicationWindow {
         id: getCDMountLocation
 
         onSuccess: (successOutput) => {
-                       cdMountLocation.text = successOutput
-                   }
+            cdMountLocation.text = successOutput
+        }
     }
 
     // A process that runs a program that sets up Wine
     Process {
         id: wineSetup
 
-        onSuccess: (successOutput) => {
-                         installOutput.text = successOutput
-                     }
-
         onStart: busyIndicator.running = true
-        onFinish: busyIndicator.running = false
-        // onStart: cdMountLocation.text = "onStarted"
-        // onFinish: cdMountLocation.text = "onFinished"
+        onSuccess: (successOutput) => {
+            installOutput.text = successOutput
+        }
+        onError: (errorOutput) => {
+            installOutput.text = errorOutput
+        }
+
+        onFinish: {
+            busyIndicator.running = false
+            installOutput.visible = true
+            installer.run("Install", [cdMountLocation.text])
+        }
     }
 
     // A process that runs a program that installs a Windows CD into the Wine prefix
     Process {
         id: installer
 
-        onSuccess: (successOutput) => {
-                         installOutput.text = installOutput.text + successOutput
-                         // installOutput.text = "successOutput " + successOutput
-                     }
-
         onStart: busyIndicator.running = true
-        onFinish: busyIndicator.running = false
-        // onStart: cdMountLocation.text = "onStarted"
-        // onFinish: cdMountLocation.text = "onFinished"
+        onSuccess: (successOutput) => {
+            installOutput.text = installOutput.text + successOutput
+        }
+        onError: (errorOutput) => {
+            installOutput.text = installOutput.text + errorOutput
+        }
+        onFinish: {
+            busyIndicator.running = false
+            pageStack.push(installCompletePage)
+        }
     }
-
-    // TODO: Add popup that displays error output from programs ran on processes
-    // Controls.Popup {
-    //     id: popup
-    //     x: 100
-    //     y: 100
-    //     width: 200
-    //     height: 300
-    //     modal: true
-    //     focus: true
-    //     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-    // }
 
     Kirigami.ScrollablePage {
         id: welcomePage
@@ -133,10 +128,6 @@ Kirigami.ApplicationWindow {
                 icon.name: "install"
                 onTriggered: {
                     wineSetup.run("WineSetup", [])
-                    installer.run("Install", [cdMountLocation.text])
-                    busyIndicator.running = false
-                    installOutput.visible = true
-                    pageStack.push(installCompletePage)
                 }
             }
         ]

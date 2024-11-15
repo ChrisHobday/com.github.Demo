@@ -25,29 +25,36 @@ Kirigami.ApplicationWindow {
     Process {
         id: wineSetup
 
+        onStart: busyIndicator.running = true
         onSuccess: (successOutput) => {
                          installOutput.text = successOutput
                      }
+        onError: (errorOutput) => {
+                     installOutput.text = errorOutput
+                 }
 
-        onStart: busyIndicator.running = true
-        onFinish: busyIndicator.running = false
-        // onStart: cdMountLocation.text = "onStarted"
-        // onFinish: cdMountLocation.text = "onFinished"
+        onFinish: {
+            busyIndicator.running = false
+            installOutput.visible = true
+            installer.run("Install", [cdMountLocation.text])
+        }
     }
 
     // A process that runs a program that installs a Windows CD into the Wine prefix
     Process {
         id: installer
 
+        onStart: busyIndicator.running = true
         onSuccess: (successOutput) => {
                          installOutput.text = installOutput.text + successOutput
-                         // installOutput.text = "successOutput " + successOutput
                      }
-
-        onStart: busyIndicator.running = true
-        onFinish: busyIndicator.running = false
-        // onStart: cdMountLocation.text = "onStarted"
-        // onFinish: cdMountLocation.text = "onFinished"
+        onError: (errorOutput) => {
+                     installOutput.text = errorOutput
+                 }
+        onFinish: {
+            busyIndicator.running = false
+            pageStack.push(installCompletePage)
+        }
     }
 
     // TODO: Add popup that displays error output from programs ran on processes
@@ -133,10 +140,6 @@ Kirigami.ApplicationWindow {
                 icon.name: "install"
                 onTriggered: {
                     wineSetup.run("WineSetup", [])
-                    installer.run("Install", [cdMountLocation.text])
-                    busyIndicator.running = false
-                    installOutput.visible = true
-                    pageStack.push(installCompletePage)
                 }
             }
         ]
