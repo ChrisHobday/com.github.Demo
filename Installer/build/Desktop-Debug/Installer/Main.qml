@@ -16,23 +16,32 @@ Kirigami.ApplicationWindow {
     Process {
         id: getCDMountLocation
 
+        // When success signal recieved
         onSuccess: (successOutput) => {
-                       cdMountLocation.text = successOutput
-                   }
+            cdMountLocation.text = successOutput
+        }
     }
 
     // A process that runs a program that sets up Wine
     Process {
         id: wineSetup
 
+        // When start signal recieved
         onStart: busyIndicator.running = true
-        onSuccess: (successOutput) => {
-                         installOutput.text = successOutput
-                     }
-        onError: (errorOutput) => {
-                     installOutput.text = errorOutput
-                 }
 
+        // When success signal recieved
+        onSuccess: (successOutput) => {
+            installOutput.color = "green"
+            installOutput.text = successOutput
+        }
+
+        // When error signal recieved
+        onError: (errorOutput) => {
+            installOutput.color = "red"
+            installOutput.text = errorOutput
+        }
+
+        // When finish signal recieved
         onFinish: {
             busyIndicator.running = false
             installOutput.visible = true
@@ -44,30 +53,27 @@ Kirigami.ApplicationWindow {
     Process {
         id: installer
 
+        // When start signal recieved
         onStart: busyIndicator.running = true
+
+        // When success signal recieved
         onSuccess: (successOutput) => {
-                         installOutput.text = installOutput.text + successOutput
-                     }
-        onError: (errorOutput) => {
-                     installOutput.text = errorOutput
-                 }
-        onFinish: {
-            busyIndicator.running = false
+            installOutput.color = "green"
+            installOutput.text = installOutput.text + successOutput
             pageStack.push(installCompletePage)
         }
-    }
 
-    // TODO: Add popup that displays error output from programs ran on processes
-    // Controls.Popup {
-    //     id: popup
-    //     x: 100
-    //     y: 100
-    //     width: 200
-    //     height: 300
-    //     modal: true
-    //     focus: true
-    //     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-    // }
+        // When error signal recieved
+        onError: (errorOutput) => {
+            installOutput.color = "red"
+            installOutput.text = installOutput.text + errorOutput
+        }
+
+        // When finish signal recieved
+        onFinish: {
+            busyIndicator.running = false
+        }
+    }
 
     Kirigami.ScrollablePage {
         id: welcomePage
@@ -139,7 +145,13 @@ Kirigami.ApplicationWindow {
                 text:"Install"
                 icon.name: "install"
                 onTriggered: {
-                    wineSetup.run("WineSetup", [])
+                    if (cdMountLocation.text === "") {
+                        installOutput.color = "red"
+                        installOutput.text = "No CD mount location selected, please ensure your Demo CD is mounted and it's location is selected in the textbox above."
+                        installOutput.visible = true
+                    } else {
+                        wineSetup.run("WineSetup", [])
+                    }
                 }
             }
         ]

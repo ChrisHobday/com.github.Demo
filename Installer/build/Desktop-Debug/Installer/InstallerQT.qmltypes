@@ -13,15 +13,15 @@ Module {
         prototype: "QObject"
         exports: ["Installer/Process 1.0"]
         exportMetaObjectRevisions: [256]
-        Signal {
-            name: "error"
-            Parameter { name: "errorOutput"; type: "QString" }
-        }
+        Signal { name: "start" }
         Signal {
             name: "success"
             Parameter { name: "successOutput"; type: "QString" }
         }
-        Signal { name: "start" }
+        Signal {
+            name: "error"
+            Parameter { name: "errorOutput"; type: "QString" }
+        }
         Signal { name: "finish" }
         Method {
             name: "run"

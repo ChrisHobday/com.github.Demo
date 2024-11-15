@@ -14,13 +14,7 @@
                 "signals": [
                     {
                         "access": "public",
-                        "arguments": [
-                            {
-                                "name": "errorOutput",
-                                "type": "QString"
-                            }
-                        ],
-                        "name": "error",
+                        "name": "start",
                         "returnType": "void"
                     },
                     {
@@ -36,7 +30,13 @@
                     },
                     {
                         "access": "public",
-                        "name": "start",
+                        "arguments": [
+                            {
+                                "name": "errorOutput",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "error",
                         "returnType": "void"
                     },
                     {

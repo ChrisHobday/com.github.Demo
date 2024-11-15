@@ -40,12 +40,12 @@ constexpr auto qt_meta_stringdata_CLASSProcessENDCLASS = QtMocHelpers::stringDat
     "Process",
     "QML.Element",
     "auto",
-    "error",
+    "start",
     "",
-    "errorOutput",
     "success",
     "successOutput",
-    "start",
+    "error",
+    "errorOutput",
     "finish",
     "run",
     "program",
@@ -73,18 +73,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSProcessENDCLASS[] = {
        1,    2,
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    1,   46,    4, 0x06,    1 /* Public */,
-       6,    1,   49,    4, 0x06,    3 /* Public */,
-       8,    0,   52,    4, 0x06,    5 /* Public */,
+       3,    0,   46,    4, 0x06,    1 /* Public */,
+       5,    1,   47,    4, 0x06,    2 /* Public */,
+       7,    1,   50,    4, 0x06,    4 /* Public */,
        9,    0,   53,    4, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
       10,    2,   54,    4, 0x0a,    7 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString,    5,
-    QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Void,
 
  // slots: parameters
@@ -102,14 +102,14 @@ Q_CONSTINIT const QMetaObject Process::staticMetaObject = { {
     qt_metaTypeArray<
         // Q_OBJECT / Q_GADGET
         Process,
-        // method 'error'
+        // method 'start'
         void,
-        QString,
         // method 'success'
         void,
         QString,
-        // method 'start'
+        // method 'error'
         void,
+        QString,
         // method 'finish'
         void,
         // method 'run'
@@ -126,9 +126,9 @@ void Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<Process *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->error((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 0: _t->start(); break;
         case 1: _t->success((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 2: _t->start(); break;
+        case 2: _t->error((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 3: _t->finish(); break;
         case 4: _t->run((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QStringList>>(_a[2]))); break;
         default: ;
@@ -136,8 +136,8 @@ void Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Process::*)(QString );
-            if (_t _q_method = &Process::error; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (Process::*)();
+            if (_t _q_method = &Process::start; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
@@ -150,8 +150,8 @@ void Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            using _t = void (Process::*)();
-            if (_t _q_method = &Process::start; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (Process::*)(QString );
+            if (_t _q_method = &Process::error; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
             }
@@ -197,10 +197,9 @@ int Process::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Process::error(QString _t1)
+void Process::start()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
@@ -211,9 +210,10 @@ void Process::success(QString _t1)
 }
 
 // SIGNAL 2
-void Process::start()
+void Process::error(QString _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3

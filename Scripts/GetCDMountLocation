@@ -1,4 +1,6 @@
 #!/bin/bash
 cdMountLocation=$(findmnt -n -l -t iso9660 --output=target)
 
-echo ${cdMountLocation}
+if (${cdMountLocation} != "") # If a CD mount location was found
+    echo ${cdMountLocation}
+fi
