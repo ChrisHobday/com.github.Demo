@@ -143,7 +143,7 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text:"Install"
-                icon.name: "install"
+                icon.name: "go-down"
                 onTriggered: {
                     if (cdMountLocation.text === "") {
                         installOutput.color = "red"
@@ -177,7 +177,7 @@ Kirigami.ApplicationWindow {
                 Controls.Button {
                     id: browseButton
                     text: "Browse"
-                    icon.name: "find-location"
+                    icon.name: "system-search"
                     onClicked: folderDialog.open()
                 }
 
