@@ -6,6 +6,7 @@ Process::Process(QObject *parent)
 {}
 
 void Process::run(QString program, QStringList arguments) {
+    //TODO: Figure out why "QObject::startTimer: Timers cannot be started from another thread" error appears on Gnome (Think is has something to do with this code)
     QThread *thread = QThread::create([this](QString program, QStringList arguments) -> void { // Create a thread that will run this function when started
         QProcess *process = new QProcess(); // Create a process that will run the given program
 

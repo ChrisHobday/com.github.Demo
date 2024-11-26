@@ -196,6 +196,7 @@ Kirigami.ApplicationWindow {
                 enabled: false
             }
 
+            // TODO: Fix "kf.quickcharts.datasource: ModelSource: Invalid role  -1 'color'" error caused by this BusyIndicator Control
             Controls.BusyIndicator {
                 id: busyIndicator
                 Layout.fillWidth: true
