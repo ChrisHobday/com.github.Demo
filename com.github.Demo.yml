@@ -54,6 +54,30 @@ modules:
         echo "Moving WineGraphics.reg to /app/share/Registry"
         mv WineGraphics.reg /app/share/Registry
 
+  # - name: Adwaita-QT
+  #   config-opts:
+  #   - -DUSE_QT6=True
+  #   buildsystem: cmake
+  #   sources:
+  #     - type: git
+  #       url: https://github.com/FedoraQt/adwaita-qt
+  #       sha256: 0a774368916def5c9889de50f3323dec11de781e
+
+  # - name: kirigami-addons
+  #   config-opts:
+  #     - -DBUILD_TESTING=OFF
+  #     - -DCMAKE_BUILD_TYPE=Release
+  #   buildsystem: cmake-ninja
+  #   sources:
+  #     - type: archive
+  #       url: https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.5.0.tar.xz
+  #       sha256: f9dfd191022b633ea3348f84730d7158a159dfe49668dba0a9e9bd678ac44e54
+  #       x-checker-data:
+  #         type: anitya
+  #         project-id: 242933
+  #         stable-only: true
+  #         url-template: https://download.kde.org/stable/kirigami-addons/kirigami-addons-$version.tar.xz
+
   # A QT GUI installer for installing CD based Windows programs on Linux with Wine
   - name: Installer
     buildsystem: cmake

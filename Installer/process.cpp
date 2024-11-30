@@ -11,7 +11,7 @@ void Process::run(QString program, QStringList arguments) {
         QProcess *process = new QProcess(); // Create a process that will run the given program
 
         emit start(); // Emit that the process has started
-        QGuiApplication::setOverrideCursor(Qt::BusyCursor); // Set the cursor to the wait cursor
+        QGuiApplication::setOverrideCursor(Qt::BusyCursor); // Set the cursor to the busy cursor
 
         // process->setWorkingDirectory(""); // Set working directory where given program will be executed
         process->start(program, arguments); // Start the given program with the given arguments

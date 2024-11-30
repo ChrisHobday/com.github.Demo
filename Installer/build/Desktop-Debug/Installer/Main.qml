@@ -10,7 +10,7 @@ Kirigami.ApplicationWindow {
     width: Kirigami.Units.gridUnit * 64
     height: Kirigami.Units.gridUnit * 36
     title: qsTr("Demo Installer")
-    pageStack.initialPage: welcomePage //Set the initial page stack page to the welcome page
+    pageStack.initialPage: welcomePage // Set the initial page stack page to the welcome page
 
     // A proccess that runs a program that tries to get the location of a mounted CD if there is one
     Process {
